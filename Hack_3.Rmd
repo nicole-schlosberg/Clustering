@@ -1,0 +1,40 @@
+---
+title: "Hack_3"
+author: "Nicole Schlosberg"
+date: "10/22/2020"
+output: html_document
+---
+
+```{r}
+library(tidyr)
+library(dplyr)
+library(stringr)
+
+#read in files
+sl1 <- read.csv("student-level.csv")
+ed1 <- read.csv("engagement-data.csv")
+
+sl2 <- sl1
+ed2 <- ed1
+
+#tests to see if there are any goofy records
+edtest <- unique(ed2$id)
+edtest <- unique(ed2$modality)
+edtest <- unique(ed2$week)
+sltest <- unique(sl2$id)
+
+#combine the Modality and Week
+ed3 <- unite(ed2, "modality-week", `modality`, `week`, sep = "-")
+
+
+## Data Restructuring
+#spread ed3 out to columns
+ed4 <- ed3 %>% spread("modality-week", "measure", fill = NA, convert = FALSE, drop = TRUE, sep = NULL)
+
+#combine the files
+sled1 <- full_join(sl2, ed4, by="id")
+#sled2 <- sled1[2,1,3,4,5]
+
+#kmeans
+```
+
