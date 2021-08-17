@@ -1,4 +1,4 @@
-# Hackathon 3 - Clustering
+# Clustering
 
 Two data files are included in this repo, *engagement-data.csv* represents weekly engagement with the online course for each student. It contains the following variables:
 
@@ -21,4 +21,3 @@ Two data files are included in this repo, *engagement-data.csv* represents weekl
 * **race.eth** - student self identified race/ethnicity
 * **free-lunch** - whether or not student recieves a free school meal
     
-
